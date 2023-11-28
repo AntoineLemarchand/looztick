@@ -83,21 +83,16 @@ if($plugin->isActivated("looztick")) {
         return;
     }
     
-    if ($looztick->testApiConnection()) {
-        Html::header("Looztick", $_SERVER["PHP_SELF"], "tools", PluginLooztickLooztick::class);
-        if (isset($_GET["id"])) {
-            $looztick->display([
-                'id'           => $_GET["id"],
-                'withtemplate' => '',
-            ]);
-        } else {
-            Search::show("PluginLooztickLooztick");
-        }
+    Html::header("Looztick", $_SERVER["PHP_SELF"], "tools", PluginLooztickLooztick::class);
+    if (isset($_GET["id"])) {
+        $looztick->display([
+            'id'           => $_GET["id"],
+            'withtemplate' => '',
+        ]);
     } else {
-        Html::header("settings", '', "config", "plugins");
-        echo "<div class='center'><br><br><img src=\"".$CFG_GLPI["root_doc"]."/pics/warning.png\" alt='warning'><br><br>";
-        echo "<b>Could not connect to Looztick API</b></div>";
+        Search::show("PluginLooztickLooztick");
     }
+
     Html::footer();
 
 } else {

@@ -142,7 +142,7 @@ class PluginLooztickConfig extends CommonDBTM {
             'id' => 'countryCodeDropdown',
             'searchable' => true,
             'name' => 'countrycode',
-            'value' => $this->fields['countrycode'] ?? null,
+            'value' => $config['countrycode'] ?? null,
             'values' => PluginLooztickLooztick::getCountryCodes(),
             ],
             __("Comment") => [
